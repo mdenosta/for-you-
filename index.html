@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Me</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+
+        .envelope {
+            position: relative;
+            width: 220px;
+            height: 160px;
+            background: #f4a9a8;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .envelope:hover {
+            transform: scale(1.1);
+        }
+
+        .flap {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f05a5b;
+            clip-path: polygon(0 0, 100% 0, 50% 50%);
+            transition: top 0.5s ease;
+        }
+
+        .envelope:hover .flap {
+            top: -15px;
+        }
+
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            color: white;
+            text-align: center;
+            animation: fadeIn 2s infinite alternate;
+        }
+
+        .open-message {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Envelope Heart Icon */
+        .heart-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope" onclick="openMessage()">
+        <div class="flap"></div>
+        <div class="heart-icon">❤️</div>
+        <div class="message">
+            <div class="open-message">Open Me</div>
+        </div>
+    </div>
+
+    <script>
+        function openMessage() {
+            window.location.href = "second_page.html";
+        }
+    </script>
+</body>
+</html>
